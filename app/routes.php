@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', function()
+Route::get('/', array(
+	'as' => 'home',
+	'uses' => 'HomeController@home'
+));
+
+/*Route::post('profile', array('before' => 'csrf', function()
 {
-	return View::make('hello');
-});
+    //
+}));
+*/
