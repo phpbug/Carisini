@@ -12,8 +12,7 @@
 		<!-- <form class="form-inline" role="form"> -->
 		
 		{{ Form::open(array('url'=>'','method'=>'post','role'=>'form')) }}
-		{{ Form::close() }}
-
+		
 		<div class="row" ng-controller="HomeController">
 			
 			<div class="col-md-6 col-md-offset-3">
@@ -47,12 +46,11 @@
 					  @endforeach
 					</ul>
 
-				
-
-
 			</div>
 
-	</div>
+		</div>
+		
+		{{ Form::close() }}
 
 {{ HTML::script('js/angular.js') }}
 {{ HTML::script('js/route.js') }}

@@ -16,8 +16,9 @@ Route::get('/', array(
 	'uses' => 'HomeController@home'
 ));
 
-/*Route::post('profile', array('before' => 'csrf', function()
+//Hanap = Search
+Route::post('/hanap/{criteria}', array('before' => 'csrf', function()
 {
-    //
+     
 }));
-*/
+
