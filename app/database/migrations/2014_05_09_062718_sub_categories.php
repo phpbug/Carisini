@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Users extends Migration {
+class SubCategories extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,16 @@ class Users extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users',function($table){
+		Schema::create('sub_categories',function($table){
 
 			$table->bigIncrements('id');
-			$table->string('email',100);
-			$table->string('password',100);
+			$table->bigInteger('category_id');
+			$table->string('name',100);
 			$table->timestamps();
+
+			$table->index('name');
+			/*$table->foreign('category_id')->references('id')->on('categories');*/
+			$table->index('category_id');
 
 		});
 	}
@@ -29,7 +33,7 @@ class Users extends Migration {
 	 */
 	public function down()
 	{
-		Scheme::drop('users');
+	  Schema::drop('sub_categories');
 	}
 
 }

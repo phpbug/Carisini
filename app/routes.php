@@ -12,18 +12,29 @@
 */
 
 Route::get('/', array(
-	'as' => 'home',
-	'uses' => 'HomeController@home'
+	'as' => 'index',
+	'uses' => 'HomeController@index'
 ));
 
+//After user hit the search from home page
+Route::get('/show/{criteria}', array(
+	'as' => 'show',
+	'uses' => 'HomeController@show'
+));
 
-Route::group(array('before' => 'onlybrogrammers'), function()
+//After user click at the ads
+Route::get('/display/{criteria}', array(
+	'as' => 'display',
+	'uses' => 'CriteriaController@display'
+));
+
+/*Route::group(array('before' => 'csrf'), function()
 {
     // Third Route
-    Route::post('/search', array(
-        'as' => 'search',
-        'uses' => 'HomeController@search'
+    Route::post('/show', array(
+        'as' => 'show',
+        'uses' => 'HomeController@show'
     ));
 
 });
-
+*/

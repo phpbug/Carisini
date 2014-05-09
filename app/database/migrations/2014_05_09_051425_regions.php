@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Categories extends Migration {
+class Regions extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,16 @@ class Categories extends Migration {
 	 */
 	public function up()
 	{
-		//
-		Schema::create('categories',function($table){
-				$table->increments('id');
-				$table->string('name');
-				$table->timestamps();	
+		Schema::create('regions',function($table){
+
+			$table->bigIncrements('id');
+			$table->string('name',100);
+			$table->timestamps();
+
+			//Settings
+			/*$table->primary('id');*/
+			$table->index('name');
+
 		});
 	}
 
@@ -27,8 +32,7 @@ class Categories extends Migration {
 	 */
 	public function down()
 	{
-		//
-		Schema::drop('categories');
+		Schema::drop('regions');
 	}
 
 }

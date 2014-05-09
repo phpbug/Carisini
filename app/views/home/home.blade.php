@@ -1,9 +1,7 @@
 @include('elements.header')
 	
-	<div class="row">
-		<div>Banner Only<div>
-	</div>
-
+	@include('elements.banners.top')
+	
 	<div style="height:150px;"></div>
 
 	<div class="container" ng-app="app">
@@ -11,7 +9,7 @@
 		<!-- 1st Row -->
 		<!-- <form class="form-inline" role="form"> -->
 		
-		{{ Form::open(array('route'=>'search','method'=>'post','role'=>'form')) }}
+		{{ Form::open(array('route'=>'show','method'=>'get','role'=>'form')) }}
 		
 		<div class="row" ng-controller="HomeController">
 			

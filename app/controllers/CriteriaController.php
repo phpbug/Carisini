@@ -1,7 +1,7 @@
 <?php
 
-class HomeController extends BaseController
-{
+class CriteriaController extends BaseController {
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -10,9 +10,6 @@ class HomeController extends BaseController
 	public function index()
 	{
 		//
-		return View::make('home.home')
-				   ->with( 'regions', Region::all()->toArray() )
-				   ->with( 'provinces', Province::all()->toArray() );
 	}
 
 
@@ -24,7 +21,6 @@ class HomeController extends BaseController
 	public function create()
 	{
 		//
-
 	}
 
 
@@ -45,9 +41,9 @@ class HomeController extends BaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id=null)
+	public function show($id)
 	{
-		return View::make('home.show');
+		//
 	}
 
 
