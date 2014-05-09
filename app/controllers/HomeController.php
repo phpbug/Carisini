@@ -10,4 +10,9 @@ class HomeController extends BaseController
 				   ->with( 'regions', Region::all()->toArray() )
 				   ->with( 'provinces', Province::all()->toArray() );
 	}	
+
+	public function search()
+	{
+		return View::make('home.search');
+	}
 }

@@ -16,9 +16,14 @@ Route::get('/', array(
 	'uses' => 'HomeController@home'
 ));
 
-//Hanap = Search
-Route::post('/hanap/{criteria}', array('before' => 'csrf', function()
+
+Route::group(array('before' => 'onlybrogrammers'), function()
 {
-     
-}));
+    // Third Route
+    Route::post('/search', array(
+        'as' => 'search',
+        'uses' => 'HomeController@search'
+    ));
+
+});
 
