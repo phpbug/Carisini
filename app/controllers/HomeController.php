@@ -15,6 +15,10 @@ class HomeController extends BaseController
 				   ->with( 'provinces', Province::all()->toArray() );
 	}
 
+	function getIndex()
+	{
+		return Response::json(Region::all()->toArray());
+	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -45,8 +49,11 @@ class HomeController extends BaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id=null)
+	public function show()
 	{
+	  echo '<pre>';
+	  print_r(Input::get());
+	  echo '</pre>';
 		return View::make('home.show');
 	}
 

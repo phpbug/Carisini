@@ -1,7 +1,7 @@
 @include('elements.header')
 @include('elements.banners.top')
 
-<div class="row">
+<div class="row" style="border:1px solid black;">
 
 	<div class="col-md-4">
 		left

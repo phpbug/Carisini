@@ -17,7 +17,7 @@ Route::get('/', array(
 ));
 
 //After user hit the search from home page
-Route::get('/show/{criteria}', array(
+Route::get('/show/{criteria?}', array(
 	'as' => 'show',
 	'uses' => 'HomeController@show'
 ));
