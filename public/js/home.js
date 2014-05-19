@@ -24,20 +24,47 @@ angular.module('app',['ngRoute'])
 			region: '@region',
 			regionId: '@regionId',
 		},
-		template: '<span class="btn btn-warning" ng-click="showRegion()">{{ region }}</span>',
+		template: '<span class="btn btn-warning" id="{{ regionId }}" ng-click="showRegion()">{{ region }}</span>',
 		controller: function($scope){
 
 			  $scope.showRegion = function(){
 
-		 			var n = '#region_'+$scope.regionId;
-		 			var s = 'span'+n;
+		 			var full_region_id = '#province_'+$scope.regionId;
+		 			var span_tag = 'input'+full_region_id;
 
-			 		if($('#region-list').find('span').hasClass('btn-success'))
+					//For Region Button
+		 			var _button = '#'+$scope.regionId;
+
+		 			//Look for region highlighted then remove
+		 			if($('#region-list').find('span').hasClass('active'))
 			 		{
-			 			$('#region-list').find('span').removeClass("btn-success");	
+			 			$('#region-list').find('span').removeClass("active");	
+			 		}	
+		 			
+		 			//Look for province highlighted then remove
+			 		if($('#province-list').find('li').hasClass('btn-success'))
+			 		{
+			 			$('#province-list').find('li').removeClass("btn-success");	
 			 		}
+
+			 		//Inject into hidden field
+			 		$("#region").val( $scope.regionId );
+			 		//Inject into province hidden field
 			 		
-			 		$('#region-list').find(s).addClass("btn-success");
+			 		$(_button).addClass('active');
+
+			 		$('#province-list').find(span_tag).addClass("btn-success");
+
+			 		//console.info( $('#province-list '+'#province_'+$scope.regionId) );
+
+			 		$('#province-list '+'input:checkbox[id="province_'+$scope.regionId+'"]').each(function(){
+
+			 			var _object = this;      //for li
+			 			var _id   = "#"+this.id; //for checkbox
+			 			$(this).prop('checked','checked');
+
+			 		});
+
 			  }
 		}
 	};

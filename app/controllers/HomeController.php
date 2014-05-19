@@ -54,6 +54,7 @@ class HomeController extends BaseController
 	  echo '<pre>';
 	  print_r(Input::get());
 	  echo '</pre>';
+
 		return View::make('home.show');
 	}
 

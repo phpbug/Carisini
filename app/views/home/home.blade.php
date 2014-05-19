@@ -13,30 +13,24 @@
 			    
 			    <input type="text" name="criteria" class="form-control focus" placeholder="Cari Sini la ~">
 			    
-			    {{ Form::close() }}
-			  	
 			  	<div class="help-block" style="text-align:center;">A block of help text that breaks onto a new line and may extend beyond one line.</div>
-		  			<ul class="list-inline">
-		  				<span style="display:none;" ng-model="flag"></span>
-
-		  				@foreach($regions as $key => $region)
 		  				
+			  		<ul class="list-inline" id="region-list">
+		  				@foreach($regions as $key => $region)
 		  				  <li style="padding-bottom:10px;" region-display region="{{ $region['name'] }}" region-id="{{ $region['id'] }}"></li>
+		  				  <input type="checkbox" name="region" value="{{ $region['id'] }}" style="display:none;" />
+							@endforeach
+						</li>
 						
-						@endforeach
-						
-						<div class="clearfix">&nbsp;</div>	
-							<span id="region-list">	
+						<ul class="list-inline" id="province-list">
+							@foreach($provinces as $key => $province)
+			  				  <!-- <li id="region_{{ $province['region_id'] }}" class="btn" disabled="disabled">{{ $province['name'] }}</li> -->
+			  				  <li class="btn" disabled="disabled">{{ $province['name'] }}</li>
+			  				  <input type="checkbox" name="province[]" value="{{ $province['id'] }}" id="province_{{ $province['region_id'] }}" />
+							@endforeach
+						</ul>
 
-								@foreach($provinces as $key => $province)
-				  				
-				  				  <!-- <li style="padding-bottom:10px;" province-display province="{{ $province['name'] }}" region-id="{{ $province['region_id'] }}"></li> -->
-				  				  <span id="region_{{ $province['region_id'] }}" class="btn" disabled="disabled">{{ $province['name'] }}</span>
-								
-								@endforeach
-
-							</span
-					</ul>
+						{{ Form::close() }}
 			</div>
 
 		</div>
