@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Categories extends Migration {
+class MainCategories extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class Categories extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('categories',function($table){
+		Schema::create('main_categories',function($table){
 
 				$table->bigIncrements('id');
 				$table->string('name',100);
@@ -33,7 +33,7 @@ class Categories extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('categories');
+		Schema::drop('main_categories');
 	}
 
 }

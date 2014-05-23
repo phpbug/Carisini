@@ -34,6 +34,7 @@ angular.module('app',['ngRoute'])
 
 					//For Region Button
 		 			var _button = '#'+$scope.regionId;
+		 			var _input_button = 'input[id="'+$scope.regionId+'"]';
 
 		 			//Look for region highlighted then remove
 		 			if($('#region-list').find('span').hasClass('active'))
@@ -47,30 +48,28 @@ angular.module('app',['ngRoute'])
 			 			$('#province-list').find('li').removeClass("btn-success");	
 			 		}
 
-			 		//Inject into hidden field
-			 		$("#region").val( $scope.regionId );
-			 		//Inject into province hidden field
-			 		
-			 		$(_button).addClass('active');
+			 		$(_button).addClass('active'); //Primary Button Clicked
+
+			 		//Reset State
+			 		//-------------------------------------------------------
+			 		if($("#region-list input[type='radio']").prop('checked'))
+					{
+						$("#region-list input[type='radio']").removeProp()
+					}
+					
+					//-------------------------------------------------------
+
+			 		$(_input_button).prop('checked','checked'); //Radio Button Checked
 
 			 		$('#province-list').find(span_tag).addClass("btn-success");
-
-			 		//console.info( $('#province-list '+'#province_'+$scope.regionId) );
-
-			 		$('#province-list '+'input:checkbox[id="province_'+$scope.regionId+'"]').each(function(){
-
-			 			var _object = this;      //for li
-			 			var _id   = "#"+this.id; //for checkbox
-			 			$(this).prop('checked','checked');
-
-			 		});
-
+			 		$('#province-list '+'input:checkbox[id="province_'+$scope.regionId+'"]').prop('checked',true);
+			 		
 			  }
 		}
 	};
 })
 
-.service('HomeService',function($http,$q){
+/*.service('HomeService',function($http,$q){
 
 	this.retrieveProvince = function(){
 
@@ -87,29 +86,29 @@ angular.module('app',['ngRoute'])
 	}
 
 
-})
+})*/
 
-.config(function($routeProvider,$interpolateProvider)
+/*.config(function($routeProvider,$interpolateProvider)
 {
   $interpolateProvider.startSymbol('{[');
   $interpolateProvider.endSymbol(']}');
-  /*$routeProvider
+  $routeProvider
   .when('/',{
   	controller: 'HomeCtrl',
   	templateUrl: '/templates/index.html'
   })
-  .otherwise({ redirectTo: 'http://google.com' });*/
+  .otherwise({ redirectTo: 'http://google.com' });
 
-})
+})*/
 
 
 
-.controller('HomeCtrl',function($scope,$location,HomeService){
+/*.controller('HomeCtrl',function($scope,$location,HomeService){
  
 
 		
 
-});
+});*/
 
 
 /*

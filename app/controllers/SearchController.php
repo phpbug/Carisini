@@ -1,7 +1,8 @@
 <?php
 
-class HomeController extends BaseController
-{
+class SearchController extends \BaseController {
+
+	
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -10,15 +11,8 @@ class HomeController extends BaseController
 	public function index()
 	{
 		//
-		return View::make('home.home')
-				   ->with( 'regions', Region::all()->toArray() )
-				   ->with( 'provinces', Province::all()->toArray() );
 	}
 
-	function getIndex()
-	{
-		return Response::json(Region::all()->toArray());
-	}
 
 	/**
 	 * Show the form for creating a new resource.
@@ -28,7 +22,6 @@ class HomeController extends BaseController
 	public function create()
 	{
 		//
-
 	}
 
 
@@ -49,13 +42,9 @@ class HomeController extends BaseController
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show()
+	public function show($id)
 	{
-/*	  echo '<pre>';
-	  print_r(Input::get());
-	  echo '</pre>';
-*/
-		return View::make('home.show');
+		//
 	}
 
 

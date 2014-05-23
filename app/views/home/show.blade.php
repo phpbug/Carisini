@@ -1,14 +1,17 @@
 @include('elements.header')
 @include('elements.banners.top')
 
-<div class="row" style="border:1px solid black;">
+<!-- <div class="row" style="border:1px solid black;"> -->
+<div class="row">
 
 	<div class="col-md-4">
 		left
 	</div>
 	<div class="col-md-4">
-	
-			<!-- Important -->		
+			
+			@include('elements.search')
+
+      <!-- Important -->		
 			<ul class="list-inline">
 				<li class="pull-left" style="width:200px;">
 					{{ HTML::image('img/0114426756.jpg', 'title here la tiu', array('class' => 'img-thumbnail')) }}

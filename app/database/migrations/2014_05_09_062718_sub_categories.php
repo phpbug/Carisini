@@ -15,13 +15,13 @@ class SubCategories extends Migration {
 		Schema::create('sub_categories',function($table){
 
 			$table->bigIncrements('id');
-			$table->bigInteger('category_id');
+			$table->bigInteger('main_category_id');
 			$table->string('name',100);
 			$table->timestamps();
 
 			$table->index('name');
 			/*$table->foreign('category_id')->references('id')->on('categories');*/
-			$table->index('category_id');
+			$table->index('main_category_id');
 
 		});
 	}

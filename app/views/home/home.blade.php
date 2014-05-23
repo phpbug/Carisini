@@ -18,14 +18,13 @@
 			  		<ul class="list-inline" id="region-list">
 		  				@foreach($regions as $key => $region)
 		  				  <li style="padding-bottom:10px;" region-display region="{{ $region['name'] }}" region-id="{{ $region['id'] }}"></li>
-		  				  <input type="checkbox" name="region" value="{{ $region['id'] }}" style="display:none;" />
+		  				  {{ Form::radio('region',$region['id'],false,array('id'=>$region['id'],'style'=>'display:none;')) }}
 							@endforeach
-						</li>
+						
 						
 						<ul class="list-inline" id="province-list">
-							@foreach($provinces as $key => $province)
-			  				  <!-- <li id="region_{{ $province['region_id'] }}" class="btn" disabled="disabled">{{ $province['name'] }}</li> -->
-			  				  <li class="btn" disabled="disabled">{{ $province['name'] }}</li>
+							@foreach($provinces as $key => $province)			  			
+			  				  <li class="btn btn-info">{{ $province['name'] }}</li>
 			  				  <input type="checkbox" name="province[]" value="{{ $province['id'] }}" id="province_{{ $province['region_id'] }}" />
 							@endforeach
 						</ul>
