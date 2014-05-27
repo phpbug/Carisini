@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ClassifiedsAds extends Migration {
+class ClassifiedAds extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,7 +13,7 @@ class ClassifiedsAds extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('classifieds_ads',function($table){
+		Schema::create('classified_ads',function($table){
 
 			$table->bigIncrements('id');
 			$table->bigInteger('main_category_id');
@@ -43,7 +43,7 @@ class ClassifiedsAds extends Migration {
 	public function down()
 	{
 		//
-		Schema::dropIfExists('classifieds_ads');
+		Schema::dropIfExists('classified_ads');
 	}
 
 }

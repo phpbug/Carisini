@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ClassifiedsAdsImages extends Migration {
+class ClassifiedAdsImages extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,17 +13,17 @@ class ClassifiedsAdsImages extends Migration {
 	public function up()
 	{
 		//
-		Schema::create('classifieds_ads_images',function($table){
+		Schema::create('classified_ads_images',function($table){
 
 			$table->bigIncrements('id');
-			$table->bigInteger('classifieds_ads_id');
+			$table->bigInteger('classified_ads_id');
 			$table->binary('image');
 			$table->string('ext');
 			$table->string('width');
 			$table->string('height');
 			$table->timestamps();
 
-			$table->index('classifieds_ads_id');
+			$table->index('classified_ads_id');
 
 		});
 	}
@@ -36,7 +36,7 @@ class ClassifiedsAdsImages extends Migration {
 	public function down()
 	{
 		//
-		Schema::dropIfExists('classifieds_ads_images');
+		Schema::dropIfExists('classified_ads_images');
 	}
 
 }

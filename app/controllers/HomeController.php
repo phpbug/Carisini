@@ -59,7 +59,11 @@ class HomeController extends BaseController
 
 	  if(Input::has('criteria'))
 	  {
-	  	DB::table('region');
+	  	$s = ClassifiedAd::all();
+
+	  	echo '<pre>';
+	  	print_r($s);
+	  	echo '</pre>';
 	  }
 
 		return View::make('home.show');
