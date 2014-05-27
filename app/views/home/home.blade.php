@@ -25,7 +25,7 @@
 						<ul class="list-inline" id="province-list">
 							@foreach($provinces as $key => $province)			  			
 			  				  <li class="btn btn-info">{{ $province['name'] }}</li>
-			  				  <input type="checkbox" name="province[]" value="{{ $province['id'] }}" id="province_{{ $province['region_id'] }}" />
+			  				  <input type="checkbox" name="province[]" value="{{ $province['id'] }}" id="province_{{ $province['region_id'] }}" style="display:none;" />
 							@endforeach
 						</ul>
 

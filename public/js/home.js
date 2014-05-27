@@ -1,22 +1,5 @@
 angular.module('app',['ngRoute'])
 
-/*.directive('display',function(){
-	return {
-		restrict: 'E', //A - attribute , E - Elements
-		scope: {
-			region: '@region',
-			regionID: '@regionId',
-		},
-		template: '<div class="btn btn-success" ng-click="fncRegion()">{{region}}</div>',
-		controller: function($scope){
-
-			  $scope.fncRegion = function(){
-			  	console.log($scope.regionID);
-			  }
-		}
-	};
-})*/
-
 .directive('regionDisplay',function(){
 	return {
 		restrict: 'A', //A - attribute , E - Elements
@@ -61,71 +44,13 @@ angular.module('app',['ngRoute'])
 
 			 		$(_input_button).prop('checked','checked'); //Radio Button Checked
 
-			 		$('#province-list').find(span_tag).addClass("btn-success");
+			 		$('#province-list').find(span_tag).prev().removeClass("btn-info");
+			 		$('#province-list').find(span_tag).prev().addClass("btn-success");
+			 		
 			 		$('#province-list '+'input:checkbox[id="province_'+$scope.regionId+'"]').prop('checked',true);
 			 		
 			  }
 		}
 	};
-})
 
-/*.service('HomeService',function($http,$q){
-
-	this.retrieveProvince = function(){
-
-		var defer = $q.defer(); //current active object for asyn ajax call
-		$http({
-			method: 'GET',
-			url: '/',
-		})
-		.success(function(data, status, headers, config) {
-			defer.resolve(data);
-		});
-
-		return defer.promise;
-	}
-
-
-})*/
-
-/*.config(function($routeProvider,$interpolateProvider)
-{
-  $interpolateProvider.startSymbol('{[');
-  $interpolateProvider.endSymbol(']}');
-  $routeProvider
-  .when('/',{
-  	controller: 'HomeCtrl',
-  	templateUrl: '/templates/index.html'
-  })
-  .otherwise({ redirectTo: 'http://google.com' });
-
-})*/
-
-
-
-/*.controller('HomeCtrl',function($scope,$location,HomeService){
- 
-
-		
-
-});*/
-
-
-/*
-angular
-.module('app', [ 
-		"ngRoute",
-		"directive.region"
-		])
-	.controller('HomeController',function($scope,$location){
-		$scope.hit = function(value){
-			console.info(value)
-		};
-	});
-	/*.config(function($routeProvider , $locationProvider){
-		 $routeProvider
-		 .when('/',{
-		 		controller: ''
-		 });
-	});*/
-
+});

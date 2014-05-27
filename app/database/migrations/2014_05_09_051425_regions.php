@@ -32,7 +32,7 @@ class Regions extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('regions');
+		Schema::dropIfExists('regions');
 	}
 
 }

@@ -35,7 +35,7 @@ class Provinces extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('provinces');
+		Schema::dropIfExists('provinces');
 	}
 
 }

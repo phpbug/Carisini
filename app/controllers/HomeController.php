@@ -51,10 +51,17 @@ class HomeController extends BaseController
 	 */
 	public function show()
 	{
-/*	  echo '<pre>';
+	  echo '<pre>';
 	  print_r(Input::get());
 	  echo '</pre>';
-*/
+
+	  //$query = 
+
+	  if(Input::has('criteria'))
+	  {
+	  	DB::table('region');
+	  }
+
 		return View::make('home.show');
 	}
 

@@ -33,7 +33,7 @@ class MainCategories extends Migration {
 	public function down()
 	{
 		//
-		Schema::drop('main_categories');
+		Schema::dropIfExists('main_categories');
 	}
 
 }

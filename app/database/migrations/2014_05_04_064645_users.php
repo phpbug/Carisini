@@ -29,7 +29,7 @@ class Users extends Migration {
 	 */
 	public function down()
 	{
-		Scheme::drop('users');
+		Scheme::dropIfExists('users');
 	}
 
 }
